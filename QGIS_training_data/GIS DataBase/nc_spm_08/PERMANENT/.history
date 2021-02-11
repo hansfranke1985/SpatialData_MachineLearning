@@ -1,0 +1,584 @@
+#+1197515323
+g.list vect
+#+1197515334
+g.remove vect=elev_contour_3m
+#+1197515377
+g.copy vect=P079214,P079214
+#+1197515391
+g.copy vect=P079218,P079218
+#+1197515405
+g.copy vect=P079219,P079219
+#+1197515767
+g.list vect
+#+1197515786
+r.support help
+#+1197515814
+r.support aspect title="South-West Wake county: Aspect [degrees from east]"
+#+1197515828
+r.info aspect
+#+1197515844
+ls
+#+1197518762
+cd /local/home/helena/grassbook
+#+1197518762
+ls
+#+1197518767
+cd english3
+#+1197518769
+ls
+#+1197521593
+vi TODO
+#+1197521616
+r.info zipcodes_dbl
+#+1197521639
+r.support zipcodes_dbl title="South West Wake: Zipcode areas from vector map, fp"
+#+1197521643
+r.info zipcodes_dbl
+#+1197521654
+ls
+#+1197521670
+cd code
+#+1197521670
+ls
+#+1197521688
+cd ../..
+#+1197521689
+ls
+#+1197521697
+cd htmlpage
+#+1197521698
+ls
+#+1197521712
+cd grasslocations
+#+1197521712
+ls
+#+1197521721
+./nc_contents_generate.sh
+#+1197521750
+r.info basin_50k
+#+1197521756
+r.info basin_50K
+#+1197521837
+r.info elev_srtm_30m
+#+1197521903
+v.info elev_lid792_cont1m
+#+1197521915
+g.list vect
+#+1197521940
+v.support help
+#+1197522058
+v.support elev_lid792_cont1m map_name="Rural area, 1m elevation contours from lidar-based DEM"
+#+1197522063
+v.info elev_lid792_cont1m
+#+1197522123
+v.info elev_lid792_randpts
+#+1197522243
+v.support elev_lid792_randpts map_name="Rural area (tile 792), random points from lidar-based DEM"
+#+1197522248
+v.info elev_lid792_randpts
+#+1197522259
+history
+#+1197522264
+./nc_contents_generate.sh
+#+1197522353
+v.support P079214 map_name="Raleigh detailed planimetrics, tile P079214"
+#+1197522405
+v.support P079216 map_name="Raleigh detailed planimetrics, tile P079216"
+#+1197522423
+v.support P079218 map_name="Raleigh detailed planimetrics, tile P079218"
+#+1197522435
+v.support P079219 map_name="Raleigh detailed planimetrics, tile P079219"
+#+1197522464
+v.info precip_30ynormals
+#+1197522533
+v.support precip_30ynormals map_name="North Carolina 30 year precipitation normals"
+#+1197522592
+v.support precip_30ynormals_3d map_name="North Carolina 30 year precipitation normals (3D)"
+#+1197522602
+v.info precip_30ynormals_3d
+#+1197522617
+./nc_contents_generate.sh
+#+1197522665
+r.info geology_30m
+#+1197522709
+r.support geology_30m title="South-West Wake county: geology derived from vector map"
+#+1197522713
+r.info geology_30m
+#+1197522761
+v.info elev_ned10m_cont10m
+#+1197522968
+v.support elev_ned10m_cont10m map_name="South-West Wake 10m elevation contours from 10m NED"
+#+1197522991
+./nc_contents_generate.sh
+#+1197523037
+r.info elev_srtm_30m
+#+1197523072
+r.info lsat7_2002_50
+#+1197523125
+g.list rast
+#+1197523153
+g.list vect
+#+1197523188
+cd ..
+#+1197523188
+ls
+#+1197523191
+cd ..
+#+1197523191
+ls
+#+1197523198
+cd english3
+#+1197523199
+ls
+#+1197523228
+grep elev_lidrural_mrpts_metric
+#+1197523240
+grep elev_lidrural_mrpts_metric *.tex
+#+1197523262
+grep elev_lidrural_mrpts_metric c*
+#+1197523269
+grep elev_lidrural_mrpts_metric
+#+1197523309
+grep elev_lidrural_mrpts_metric chapter6.tex
+#+1197523318
+grep elev_lidrural chapter6.tex
+#+1197523405
+v.info -g elev_lidrural_mrptsft
+#+1197523426
+v.info -g elev_lidrural_mrpts
+#+1197523434
+v.info -g elev_lidrural_mrpts_metric
+#+1197523440
+g.list vect
+#+1197523465
+g.rename vect=elev_lidrural_mrpts_metric,elev_lidrural_mrpts
+#+1197523511
+ls
+#+1197523518
+vi TODO
+#+1197523591
+g.list vect
+#+1197523609
+vi TODO
+#+1197523686
+grep elev_lid792_cont_1m
+#+1197523696
+ls
+#+1197523710
+grep elev_lid792_cont_1m chapter6.tex
+#+1197523717
+grep elev_lid792_cont1m chapter6.tex
+#+1197523730
+grep elev_lid792_cont1m chapter5.tex
+#+1197523737
+grep elev_lid792_cont_1m chapter5.tex
+#+1197523761
+vi TODO
+#+1197523900
+v.info geonames_wakecounty
+#+1197523904
+g.list vect
+#+1197523914
+v.info geonames_wake
+#+1197523944
+v.support geonames_wake map_name="Wake county geonames (points map)"
+#+1197523954
+vi TODO
+#+1197524012
+v.info roads_major
+#+1197524020
+g.list vect
+#+1197524027
+v.info roadsmajor
+#+1197524046
+r.info aspect
+#+1197524072
+g.list vect
+#+1197524091
+v.info busroutesall
+#+1197524147
+g.list vect
+#+1197524154
+v.info lakes
+#+1197524161
+g.list rast
+#+1197524173
+r.info elev_ned_30m
+#+1197524186
+vi TODO
+#+1197524271
+svn ci -m "changes for nc_spm_07 added" TODO
+#+1197524313
+ls
+#+1197524315
+cd ..
+#+1197524316
+ls
+#+1197524321
+cd htmlpage
+#+1197524323
+ls
+#+1197524355
+exit
+#+1198081844
+g.list vect
+#+1198081893
+g.rename vect=soils_wake,soils_wakefull
+#+1198081903
+d.mon x0
+#+1198081918
+d.vect censusblk_swwake
+#+1198081935
+d.vect zipcodes_wake co=green
+#+1198081940
+d.zoom
+#+1198081968
+g.list vect
+#+1198081985
+d.vect -c boundary_county
+#+1198081991
+d.erase
+#+1198082014
+dd.vect streets_wake
+#+1198082024
+d.vect streets_wake
+#+1198082095
+ls
+#+1198082128
+cd ../..
+#+1198082129
+ls
+#+1198082134
+cd ../..
+#+1198082134
+ls
+#+1198082137
+cd ..
+#+1198082137
+ls
+#+1198082143
+cd grassdata07
+#+1198082144
+ls
+#+1198082155
+cd nc_spm_07/PERMANENT/
+#+1198082157
+ls
+#+1198082160
+du vector
+#+1198082285
+v.proj -l location=nc_spf mapset=user1
+#+1198082356
+v.proj soils_swwake out=soils_wake location=nc_spf mapset=user1
+#+1198082373
+d.vect soils_wake -c
+#+1198082386
+du
+#+1198082470
+v.info -c soils_wake
+#+1198082476
+v.info -c soils_wakefull
+#+1198082495
+v.info soils_wake
+#+1198082506
+v.info soils_wakefull
+#+1198082535
+g.list vect
+#+1198082556
+g.region vect=soils_wake -p
+#+1198082566
+d.erase
+#+1198082570
+d.vect soils_wake -c
+#+1198082626
+d.zoom
+#+1198082714
+d.vect lakest ype=boundary co=blue
+#+1198082724
+d.vect lakes type=boundary co=blue
+#+1198082752
+history
+#+1198082755
+d.erase
+#+1198082764
+d.vect soils_wake type=boundary
+#+1198082772
+d.vect lakes type=boundary co=blue
+#+1198082833
+d.what.vect -x soils_wake,soils_wakefull
+#+1198082955
+g.list vect
+#+1198082969
+g.remove vect=soils_wakefull
+#+1198082974
+du
+#+1198082998
+ls
+#+1198083000
+cd ../..
+#+1198083001
+ls
+#+1198083003
+cd ..
+#+1198083003
+ls
+#+1198083007
+cd grassbook
+#+1198083008
+ls
+#+1198083016
+cd english3
+#+1198083017
+ls
+#+1198083026
+grep soils_wake *.tex
+#+1198083078
+vi chapter6.tex
+#+1198083123
+g.region region=swwake_10m -p
+#+1198083123
+d.mon x0
+#+1198083124
+d.erase
+#+1198083124
+d.vect streams col=blue
+#+1198083125
+d.vect streets_wake
+#+1198083126
+# display symbols
+#+1198083126
+d.vect overpasses icon=extra/bridge size=15 fcol=red
+#+1198083133
+vi chapter6.tex
+#+1198083172
+# display areas with centroids ( sized 2 pixels )
+#+1198083172
+d.vect -c soils_wake size=2
+#+1198083178
+# display areas without borders and centroids
+#+1198083178
+d.vect -c soils_wake type=area
+#+1198083238
+vi chapter6.tex
+#+1198083281
+v.info -t soils_wake
+#+1198083281
+nodes=137682
+#+1198083281
+points=0
+#+1198083281
+lines=0
+#+1198083281
+boundaries=136379
+#+1198083281
+centroids=47156
+#+1198083281
+[...]
+#+1198083333
+vi chapter6.tex
+#+1198083446
+g.region vect=soils_wake -p
+#+1198083446
+v.category soils_wake output=soils_bnd_cats type=boundary
+#+1198083448
+# extract boundaries only
+#+1198083448
+v.extract soils_bnd_cats output=soils_bnds type=boundary
+#+1198083449
+# vector type conversion
+#+1198083449
+v.type soils_bnds out=soils_lines type=boundary,line
+#+1198083450
+d.erase
+#+1198083450
+d.vect soils_lines
+#+1198083511
+vi chapter6.tex
+#+1198083607
+g.region rast=elevation
+#+1198083610
+d.erase
+#+1198083613
+d.vect soils_lines
+#+1198083626
+d.zoom
+#+1198083669
+history
+#+1198083677
+d.vect -c soils_wake type=area
+#+1198083738
+g.region vect=soils_wake -p
+#+1198083749
+v.info -t soils_wake
+#+1198083759
+ls
+#+1198083766
+vi chapter6.tex
+#+1198083854
+g.list vect
+#+1198083908
+vi chapter6.tex
+#+1198084102
+g.region swwake_10m
+#+1198084105
+d.erase
+#+1198084120
+d.vect elev_lid792_bepts siz=1
+#+1198084150
+d.vect elev_lid792_randpts co=red siz=1
+#+1198084166
+d.vect elev_lidrural_mrpts siz=1 co=green
+#+1198084181
+grep elev_lidrural_mrptsft *.tex
+#+1198084245
+g.list rast
+#+1198084269
+d.rast -o elev_lid792_1m
+#+1198084303
+d.rast -o ortho_2001_t792_1m
+#+1198084314
+history
+#+1198084329
+d.vect elev_lid792_bepts siz=1 co=yellow
+#+1198084355
+d.vect elev_lidrural_mrpts siz=1 co=green
+#+1198084361
+d.zoom
+#+1198084439
+v.in.region help
+#+1198084461
+v.in.region templidclip
+#+1198084470
+d.vect templidclip co=red
+#+1198085070
+vi chapter6.tex
+#+1198085088
+g.list vect
+#+1198085128
+v.select ai=elev_lid792_bepts bi=templidclip out=elev_lid792_beptsclip
+#+1198085150
+d.vect elev_lid792_beptsclip siz=1
+#+1198085172
+du
+#+1198085189
+cd ..
+#+1198085190
+ls
+#+1198085192
+cd ..
+#+1198085193
+ls
+#+1198085197
+cd grassdata07
+#+1198085198
+ls
+#+1198085206
+cd nc_spm_07
+#+1198085207
+ls
+#+1198085213
+cd PERMANENT/
+#+1198085214
+ls
+#+1198085218
+du vector
+#+1198085258
+g.list vect
+#+1198085296
+d.vect elev_lid792_randpts co=red siz=2
+#+1198085321
+g.remove vect=elev_lid792_bepts,templidclip
+#+1198085344
+g.rename vect=elev_lid792_beptsclip,elev_lid792_bepts
+#+1198085366
+g.list vect
+#+1198085423
+g.list rast
+#+1198085484
+g.list vect
+#+1198085644
+g.remove vect=soils_bnd_cats,soils_bnds,soils_lines
+#+1198085668
+g.mapsets -l
+#+1198085692
+g.mapsets add=landsat,sqlite,user1,user2
+#+1198085696
+g.list rast
+#+1198085702
+g.list vect
+#+1198085711
+g.list region
+#+1198085726
+g.list help
+#+1198085735
+g.list rast3d
+#+1198085743
+g.list icon
+#+1198085750
+g.list sites
+#+1198085760
+pwd
+#+1198085763
+du
+#+1198085792
+ls
+#+1198085802
+cd ../..
+#+1198085803
+ls
+#+1198085805
+cd ..
+#+1198085806
+ls
+#+1198085810
+cd grassbook
+#+1198085811
+ls
+#+1198085823
+cd htmlpage
+#+1198085823
+ls
+#+1198085831
+cd grasslocations
+#+1198085831
+ls
+#+1198085855
+sh ./nc_contents_generate.sh
+#+1198085907
+ls
+#+1198085943
+cp nc_spm_06_contents.html nc_spm_07_contents.html
+#+1198085953
+vi nc_spm_07_contents.html
+#+1198086058
+ls
+#+1198086081
+cp nc_spm_06_contents.html nc_spm_07_contents.html
+#+1198086185
+vi nc_spm_07_contents.html
+#+1198087402
+ls
+#+1198087411
+svn add nc_spm_07_contents.html
+#+1198087435
+svn ci -m "updated list of maps" nc_spm_07_contents.html
+#+1198087453
+v.support help
+#+1198087548
+v.support soils_wake map_name="South-West Wake County soils"
+#+1198087553
+history
+#+1198087558
+pwd
+#+1198087560
+ls
+#+1198087565
+sh ./nc_contents_generate.sh
+#+1198087604
+v.support soils_wake map_name="South-West Wake County soils (polygon map)"
+#+1198087673
+v.support elev_lid792_bepts map_name="Rural area (in tile 792), bare earth lidar point cloud (points map)"
+#+1198087727
+v.support elev_lid792_randpts map_name="Rural area (in tile 792), random points from lidar-based DEM"
+#+1198087768
+exit

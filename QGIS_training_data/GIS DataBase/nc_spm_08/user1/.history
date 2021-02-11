@@ -1,0 +1,812 @@
+#+1187716682
+g.list rast
+#+1187716688
+g.list vect
+#+1187716699
+g.mapsets help
+#+1187716706
+g.mapsets -l
+#+1187716722
+g.mapsets -p
+#+1187716754
+g.region rural_1m
+#+1187716757
+d.mon x0
+#+1187716765
+g.list rast
+#+1187716773
+d.rast elev_lid792_1m
+#+1187716780
+d.erase
+#+1187716781
+d.rast elev_lid792_1m
+#+1187716793
+g.list vect
+#+1187716806
+d.vect elev_lid792_cont1m
+#+1187716834
+g.list rast
+#+1187716883
+r.flow elev_lid792_1m dsout=dsd_lid792_1m
+#+1187716947
+d.rast -o dsd_lid792_1m val=100-100000
+#+1187716973
+d.zoom
+#+1187717008
+g.region -p
+#+1187717212
+g.region n=220670 s=220190 w=638400 e=638870 -p
+#+1187717223
+d.erase
+#+1187717224
+hi
+#+1187717227
+history
+#+1187717233
+d.rast elev_lid792_1m
+#+1187717238
+d.vect elev_lid792_cont1m
+#+1187717244
+d.rast -o dsd_lid792_1m val=100-100000
+#+1187717256
+g.region -p
+#+1187717286
+g.region s=220200 -p
+#+1187717292
+d.erase
+#+1187717296
+d.rast elev_lid792_1m
+#+1187717303
+d.vect elev_lid792_cont1m
+#+1187717315
+d.rast -o dsd_lid792_1m val=100-100000
+#+1187717326
+g.list vect
+#+1187717337
+d.vect P079215 co=white
+#+1187717388
+pwd
+#+1187717429
+g.region save=vissta470rc
+#+1187717448
+nviz elev_lid792_1m
+#+1187717661
+nviz elev_lid792_1m
+#+1187718435
+exit
+#+1187728441
+d.mon x0
+#+1187728450
+history
+#+1187728460
+d.rast -o dsd_lid792_1m
+#+1187728555
+exit
+#+1187728628
+d.mon x0
+#+1187728650
+history
+#+1187728664
+d.rast dsd_lid792_1m
+#+1187730170
+exit
+#+1187884399
+d.mon x0
+#+1187884438
+history
+#+1187884450
+d.rast dsd_lid792_1m
+#+1187884463
+g.list vect
+#+1187884487
+d.vect elev_lid792_cont1m
+#+1187884547
+g.region -p
+#+1187886565
+exit
+#+1187981500
+g.list rast
+#+1187981513
+g.list rast
+#+1187981525
+nviz elev_lid792_1m
+#+1187981590
+h.list rast
+#+1187981595
+g.list rast
+#+1187981624
+d.mon x0
+#+1187981666
+d.rast elev_lid792_1m
+#+1187981674
+g.list vect
+#+1187981688
+d.vect elev_lid792_cont1m
+#+1187981713
+d.rast dsd_lid792_1m
+#+1187981718
+d.vect elev_lid792_cont1m
+#+1187981807
+g.region -p
+#+1187983054
+v.surf.rst -d input=elev_lid792_bepts layer=0 elev=elev_lid792_1ma slo=dx_1m asp=dy_1m ten=15 smooth=1.5 segmax=25 npmin=100
+#+1187983085
+r.mapcalc man05=0.05
+#+1187983085
+r.mapcalc infil0=0.
+#+1187983088
+r.mapcalc rain50mmhr=50.
+#+1187983180
+r.sim.water -t elevin=elev_lid792_1ma dxin=dx_1m dyin=dy_1m rain=rain50mmhr infil=infil0 manin=man05 depth=wdp_2m disch=disch_2m nwalk=400000 niter=500 outit=20 hmax=0.2 halpha=8.0 hbeta=1.0
+#+1187983771
+g.region -p
+#+1187983906
+g.region n=n-30 w=w+30 -p
+#+1187983911
+d.erase
+#+1187983914
+d.rast dsd_lid792_1m
+#+1187983928
+d.vect elev_lid792_cont1m
+#+1187984035
+g.region n=n-10 w=w+10 -p
+#+1187984045
+d.erase
+#+1187984048
+d.rast dsd_lid792_1m
+#+1187984083
+g.reagion -p
+#+1187984089
+g.region -p
+#+1187984105
+pwd
+#+1187984125
+vi tangisreg.txt
+#+1187984138
+g.list rast
+#+1187984161
+xganim view1="disch*"
+#+1187984226
+d.vect elev_lid792_cont1m
+#+1187984561
+r.sim.water -t elevin=elev_lid792_1ma dxin=dx_1m dyin=dy_1m rain=rain50mmhr infil=infil0 manin=man05 depth=wdp_2m disch=disch_2m nwalk=400000 niter=800 outit=20 hmax=0.2 halpha=8.0 hbeta=1.0 --o
+#+1187984569
+bg
+#+1187986089
+xganim view1="disch*"
+#+1187986379
+g.mremove rast="disch*"
+#+1187986393
+g.mremove -f rast="disch*"
+#+1187986397
+g.list rast
+#+1187986423
+xganim view1="wdp*"
+#+1187986559
+g.mremove rast="wdp*"
+#+1187986577
+g.mremove -f rast="wdp*"
+#+1187986583
+g.list rast
+#+1187986618
+r.sim.water -t elevin=elev_lid792_1ma dxin=dx_1m dyin=dy_1m rain=rain50mmhr infil=infil0 manin=man05 depth=wdp_2m disch=disch_2m nwalk=400000 niter=1000 outit=20 hmax=0.2 halpha=8.0 hbeta=1.0 --o
+#+1187989613
+xganim view1="disch*"
+#+1187990321
+r.out.mpeg help
+#+1187990416
+r.out.mpeg view1="dich*" out=dischanim qual=2
+#+1187990575
+xganim view1="disch*"
+#+1187991000
+g.region -l
+#+1187991010
+g.list regions
+#+1187991017
+g.list region
+#+1187991052
+g.region save=vissta430
+#+1187991060
+g.region vissta470 -p
+#+1187991070
+g.region vissta470rc -p
+#+1187991094
+d.erase
+#+1187991097
+d.rast dsd_lid792_1m
+#+1187991115
+d.vect elev_lid792_cont1m
+#+1187991148
+g.region -p
+#+1187991251
+g.region n=n+10 e=e+10 -p
+#+1187991254
+d.erase
+#+1187991257
+d.rast dsd_lid792_1m
+#+1187991383
+xganim view1="disch*"
+#+1187991423
+exit
+#+1188247609
+g.list rast
+#+1188247613
+d.mon x0
+#+1188247620
+g.region -p
+#+1188247629
+d.rast dsd_lid792_1m
+#+1188247635
+d.erase
+#+1188247638
+d.rast dsd_lid792_1m
+#+1188247653
+d.rast -o disch_2m.00873
+#+1188247682
+d.rast disch_2m.00992
+#+1188247706
+history
+#+1188247725
+d.rast dx_1m
+#+1188247779
+v.surf.rst -d input=elev_lid792_bepts layer=0 elev=elev_lid792_1mb slo=dx_1mb asp=dy_1mb ten=15 smooth=1.5 segmax=25 npmin=100 --o
+#+1188247942
+d.rast dx_1mb
+#+1188247964
+r.mapcalc man05=0.05
+#+1188247967
+r.mapcalc infil0=0.
+#+1188247970
+r.mapcalc rain50mmhr=50.
+#+1188248076
+r.sim.water -t elevin=elev_lid792_1mb dxin=dx_1mb dyin=dy_1mb rain=rain50mmhr infil=infil0 manin=man05 depth=wdp_1m disch=disch_1m nwalk=400000 niter=800 outit=20 hmax=0.2 halpha=8.0 hbeta=1.0
+#+1188248901
+xganim view1="disch_1m"
+#+1188248913
+xganim view1="disch_1m*"
+#+1188249118
+xganim view1="wdp_1m*"
+#+1188249391
+g.list vect
+#+1188249404
+v.info -h elev_lid792_cont1m
+#+1188249425
+r.contour input="elev_lid792_1m" output="elev_lid792_cont2m minlevel=104 step=2
+#+1188249436
+r.contour input="elev_lid792_1m" output="elev_lid792_cont2m" minlevel=104 step=2
+#+1188249445
+d.vect elev_lid792_cont2m
+#+1188249461
+d.vect elev_lid792_cont1m
+#+1188249468
+d.vect elev_lid792_cont2m width=3
+#+1188251094
+exit
+#+1188327244
+exit
+#+1188330378
+history
+#+1188330388
+xganim view1="wdp_1m*"
+#+1188330408
+xganim view1="disch_1m*"
+#+1188330437
+d.mon x0
+#+1188330468
+xganim view1="disch_1m*"
+#+1188334688
+d.rast dx_1mb el
+#+1188334747
+exit
+#+1188505547
+history
+#+1188505558
+xganim view1="disch_1m*"
+#+1188505709
+xganim view1="disch_1m*"
+#+1188506016
+xganim view1="disch_1m*"
+#+1188506124
+d.mon x0
+#+1188506142
+g.list rast
+#+1188506161
+g.list rast
+#+1188506181
+g.list rast
+#+1188506201
+d.rast ortho_2001_t792_1m
+#+1188506264
+xganim view1="disch_1m*"
+#+1188506377
+d.rast cfactorbare_1m
+#+1188506435
+exit
+#+1189629706
+g.list rast
+#+1189629719
+g.region rast=elevation
+#+1189629728
+d.mon x0
+#+1189629741
+d.rast el_D793_6m
+#+1189629757
+d.rast el_D782_6m
+#+1189629766
+d.rast el_D783_6m
+#+1189629797
+g.region rast=el_D783_6m
+#+1189629800
+d.erase
+#+1189629806
+nviz el_D783_6m
+#+1189629955
+nviz -q
+#+1189630065
+nviz -q
+#+1189630177
+g.list rast
+#+1189630190
+g.region rast=wdp_1m.0039 -p
+#+1189630197
+g.list rast
+#+1189630221
+nviz elev_lid792_1ma co=disch_2m.00674
+#+1189630652
+exit
+#+1190320017
+exit
+#+1190321689
+d.mon x0
+#+1190321712
+d.rast el_D783_6m
+#+1190321725
+g.region -p
+#+1190321735
+xganim view1="disch_1m*"
+#+1190323291
+history
+#+1190323311
+g.list rast
+#+1190323369
+nviz elev_lid792_1ma co=disch_2m.00674
+#+1190324940
+exit
+#+1190389300
+history
+#+1190389344
+d.mon x0
+#+1190389353
+xganim view1="disch_1m*"
+#+1190389423
+r.sim.water -t elevin=elev_lid792_1mb dxin=dx_1mb dyin=dy_1mb rain=rain50mmhr infil=infil0 manin=man05 depth=twdp_1m disch=tdisch_1m nwalk=400000 niter=800 outit=20 hmax=0.2 halpha=8.0 hbeta=1.0
+#+1190389502
+ls
+#+1190389724
+history
+#+1190389730
+nviz elev_lid792_1ma co=disch_2m.00674
+#+1190389787
+bg
+#+1190392023
+exit
+#+1192909924
+g.list rast
+#+1192909965
+r.info streams_derived
+#+1192909973
+g.list rast
+#+1192909990
+g.region rast=elev_srtm_30m
+#+1192910011
+r.info accum_50K
+#+1192910031
+r.info basin_50K
+#+1192910044
+g.region -p
+#+1192910097
+r.watershed elev_srtm_30m threshold=50000 accumulation=accum_srtmtest30m
+#+1192911545
+r.watershed elev_ned_30m threshold=50000 accumulation=accum_nedtest30m
+#+1192913211
+g.list rast
+#+1192913226
+g.region rast=el_D792_6m -p
+#+1192913286
+r.watershed el_D792_6m threshold=50000 accumulation=accum_ledtest6m
+#+1192913301
+d.mon x0
+#+1192913314
+d.erase
+#+1192913339
+d.rast accum_ledtest6m cat=100-10000000
+#+1192913349
+history
+#+1192913370
+d.rast -o accum_ledtest6m cat=50-10000000
+#+1192913428
+r.colors accum_ledtest6m co=ryg
+#+1192913438
+d.rast -o accum_ledtest6m cat=50-10000000
+#+1192913451
+d.rast -o accum_nedtest30m
+#+1192913462
+d.erase
+#+1192913470
+d.rast -o accum_nedtest30m cat=50-10000000
+#+1192913480
+d.rast -o accum_ledtest6m cat=50-10000000
+#+1192913831
+ls
+#+1192913866
+g.region -p
+#+1192913879
+g.region -ll
+#+1192913919
+g.region rast=elevation -p
+#+1192913925
+d.erase
+#+1192913940
+d.where help
+#+1192913959
+d.grid 1000
+#+1192913966
+d.erase
+#+1192913972
+d.grid 5000
+#+1192914017
+d.where -ldw
+#+1192914023
+d.where -l
+#+1192914088
+vi testxyll.txt
+#+1192914115
+v.in.ascii help
+#+1192914129
+vi testxyll.txt
+#+1192914215
+history
+#+1192914224
+d.rast -o accum_nedtest30m cat=50-10000000
+#+1192914243
+d.rast -o accum_ledtest6m cat=100-10000000
+#+1192914269
+d.zoom
+#+1192914290
+history
+#+1192914308
+g.region rast=accum_ledtest6m -p
+#+1192914311
+d.erase
+#+1192914320
+d.rast -o accum_nedtest30m cat=50-10000000
+#+1192914341
+d.rast -o accum_ledtest6m cat=1000-10000000
+#+1192914410
+d.vect streams
+#+1192914497
+exit
+#+1194467241
+g.region -p
+#+1194467440
+g.list rast
+#+1194467450
+r.info disch_2m.00992
+#+1194467478
+g.region rast=disch_2m.00992
+#+1194467481
+d.erase
+#+1194468005
+exit
+#+1194470783
+exit
+#+1194987510
+g.list vect
+#+1194987534
+g.list rast
+#+1194988054
+d.mon x0
+#+1194988083
+g.list vect
+#+1194988092
+d.vect elev_lid792_cont2m
+#+1194988104
+g.region vect=elev_lid792_cont2m -p
+#+1194988113
+d.erase
+#+1194988116
+d.vect elev_lid792_cont2m
+#+1194988135
+g.list vect
+#+1194988190
+d.vect elev_contour_3m co=brown
+#+1194988211
+d.vect elev_lid792_cont1m co=red
+#+1194988236
+d.erase
+#+1194988240
+g.list rast
+#+1194988247
+g.list vect
+#+1194988256
+v.info -h elev_lid792_cont2m
+#+1194988285
+v.info -h elev_lid792_cont1m
+#+1194988306
+d.vect elev_lid792_cont1m
+#+1194988323
+d.vect elev_lid792_cont2m co=red
+#+1194988336
+d.vect elev_lid792_cont2m co=red width=2
+#+1194988346
+d.erase
+#+1194988357
+d.vect elev_lid792_cont1m co=brown
+#+1194988368
+d.vect elev_lid792_cont2m width=2
+#+1194988638
+g.region -ep
+#+1194988668
+v.info elev_lid792_cont2m
+#+1194988682
+v.info elev_lid792_cont1m
+#+1194988704
+g.region -p
+#+1194988734
+r.info elev_lid792_1m
+#+1194988749
+g.region -p
+#+1194988793
+g.region n=220680 e=638880 -p
+#+1194988805
+g.region n=220680 e=638880 -p -e
+#+1194988834
+g.region s=220200 w=638400 -pe
+#+1194988860
+g.region s=220200 w=638400 -a res=1
+#+1194988865
+g.rehion -pe
+#+1194988870
+g.region -pe
+#+1194988908
+r.contour input="elev_lid792_1m" output="elev_lid792_cont2m" minlevel=104 step=2 cut=0
+#+1194988913
+r.contour input="elev_lid792_1m" output="elev_lid792_cont2m" minlevel=104 step=2 cut=0 --o
+#+1194988917
+d.erase
+#+1194988923
+history
+#+1194988930
+d.vect elev_lid792_cont1m co=brown
+#+1194988939
+d.vect elev_lid792_cont2m width=2
+#+1194988943
+exit
+#+1194989196
+d.mon x0
+#+1194989429
+exit
+#+1194989504
+d.mon x0
+#+1194989514
+history
+#+1194989522
+d.vect elev_lid792_cont1m co=brown
+#+1194989529
+d.vect elev_lid792_cont2m width=2
+#+1194989607
+d.measure
+#+1194989696
+g.list rast
+#+1194989711
+d.vect disch_2m.00138
+#+1194989721
+d.rast disch_2m.00138
+#+1194989736
+d.vect elev_lid792_cont1m co=brown
+#+1194989743
+d.vect elev_lid792_cont2m width=2
+#+1194989760
+exit
+#+1194991833
+exit
+#+1195672627
+g.list vect
+#+1195672633
+exit
+#+1195672791
+g.list vect
+#+1195672832
+g.mapsets add=user2
+#+1195672836
+g.list vect
+#+1195672857
+exit
+#+1195672933
+d.mon x0
+#+1195673012
+g.region -p
+#+1195673023
+g.list vect
+#+1195673044
+d.vect elev_lid792_cont1m
+#+1195673062
+d.vect elev_lid792_cont2m co=brown width=2
+#+1195674042
+g.list rast
+#+1195674073
+g.list rast
+#+1195674097
+xganim view="disch_2m"
+#+1195674106
+xganim view1="disch_2m"
+#+1195674113
+xganim view1="disch_2m*"
+#+1195674160
+exit
+#+1197391521
+g.list rast
+#+1197391645
+g.mapsets add=landsat
+#+1197391648
+g.list rast
+#+1197391710
+g.list vect
+#+1197394125
+exit
+#+1197513787
+g.list vect
+#+1197513801
+g.mapsets -l
+#+1197513814
+g.list rast
+#+1197513921
+v.proj -l location=nc_spf mapset=helena
+#+1197513930
+v.proj -l location=nc_spf mapset=PERMANENT
+#+1197514010
+v.proj P079214 out=P079214 location=nc_spf mapset=PERMANENT
+#+1197514035
+v.proj P079216 out=P079216 location=nc_spf mapset=PERMANENT
+#+1197514048
+v.proj P079218 out=P079218 location=nc_spf mapset=PERMANENT
+#+1197514062
+v.proj P079219 out=P079219 location=nc_spf mapset=PERMANENT
+#+1197514073
+d.mon x0
+#+1197514121
+g.region rural_1m
+#+1197514124
+d.erase
+#+1197514128
+g.list vect
+#+1197514198
+d.rast ortho_2001_t792_1m
+#+1197514761
+d.vect P079214 co=yellow
+#+1197514779
+d.vect P079215 co=red
+#+1197514813
+d.vect P079218 co=cyan
+#+1197514921
+d.vect P079219 co=orange
+#+1197514974
+pwd
+#+1197514982
+cd /location/home/helena
+#+1197514994
+cd /local/home/helena/grassbook
+#+1197514995
+ls
+#+1197515000
+cd english3
+#+1197515002
+ls
+#+1197515071
+vi TODO
+#+1197515112
+r.info aspect
+#+1197515133
+vi TODO
+#+1197515238
+g.list vect
+#+1197515251
+exit
+#+1197650071
+d.mon x0
+#+1197650080
+g.region -p
+#+1197650085
+d.rast elevation
+#+1197650095
+gis.m &
+#+1197650135
+nviz -q
+#+1197650213
+exit
+#+1197650268
+nviz elevation
+#+1197650278
+exit
+#+1198040545
+g.list rast
+#+1198040599
+g.list vect
+#+1198040692
+exit
+#+1198041012
+g.list rast
+#+1198041031
+g.mremove help
+#+1198041048
+g.mremove rast=*
+#+1198041056
+g.mremove rast="*"
+#+1198041077
+g.mremove rast="*" -f
+#+1198041082
+g.list rast
+#+1198041127
+g.list vect
+#+1198041143
+g.mremove vect="*"
+#+1198041149
+g.mremove vect="*" -f
+#+1198041157
+g.list vect
+#+1198041164
+g.list rast
+#+1198041172
+g.list region
+#+1198041210
+g.remove region=previous_zoom,tmpanimregion29202,vissta430,vissta470rc
+#+1198041217
+pwd
+#+1198041220
+ls
+#+1198041229
+du -s nc_spm_07
+#+1198041257
+cd nc_spm_07
+#+1198041258
+ls
+#+1198041271
+du -s PERMANENT
+#+1198041286
+cd PERMANENT
+#+1198041286
+ls
+#+1198041296
+du -s tmp
+#+1198041304
+du -s fcell
+#+1198041318
+du -s cell
+#+1198041338
+du -s vector
+#+1198041356
+du
+#+1198041376
+ls
+#+1198041382
+cd vector
+#+1198041384
+ls
+#+1198041387
+du
+#+1198041562
+cd ..
+#+1198041563
+ls
+#+1198041595
+cd ..
+#+1198041595
+ls
+#+1198041601
+d.mon x0
+#+1198041612
+d.vect -c soils_wake
+#+1198041622
+d.zoom
+#+1198041787
+exit
